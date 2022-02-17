@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './WelcomeSection.scss';
 import photo from '../../assets/img/mainPhoto.png';
+import doubleCheck from '../../assets/img/double-check.png';
 
 const WelcomeSection = () => {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 3000)
+  }, []);
 
   const data = new Date();
   const getCurrHours = (func) => {
@@ -14,7 +21,7 @@ const WelcomeSection = () => {
     return value
   };
 
-  const dataString = `${getCurrHours(data.getHours())}:${getCurrHours(data.getMinutes())}:${getCurrHours(data.getSeconds())} ${data.getDay()}.${getCurrHours(data.getMonth())}.${data.getFullYear()}`
+  const dataString = `${getCurrHours(data.getHours())}:${getCurrHours(data.getMinutes())}:${getCurrHours(data.getSeconds())} ${data.getDay()}.${getCurrHours(data.getMonth() + 1)}.${data.getFullYear()}`
 
 
   return (
@@ -27,8 +34,9 @@ const WelcomeSection = () => {
             alt="avatar"
           />
           <div className="welcomeSection__message message">
-            <div className="message__body">hello) My name is Viktor and I'm frontend developer</div>
+            <div className="message__body">hello) My name is Viktor and I'm frontend developer<span>&#128521;</span></div>
             <div className="message__date">{dataString}</div>
+            { loading ? null : <img src={doubleCheck} className='message__check' alt="check"/> }
           </div>
         </div>
         <div className="welcomeSection__link">
