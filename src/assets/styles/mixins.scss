@@ -1,0 +1,11 @@
+@mixin wrapper {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1140px;
+}
+
+@mixin title {
+  text-align: center;
+  font-size: 25px;
+  margin: 0 0 15px 0;
+}

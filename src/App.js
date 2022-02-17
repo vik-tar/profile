@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import WelcomeSection from "./components/welcome-section/WelcomeSection";
+import AboutSection from "./components/about-section/AboutSection";
+import Contact from "./components/contact/Contact";
+import Footer from "./components/footer/Footer";
+import {useEffect, useState} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 1000)
+  }, []);
+
+  if (loading) {
+    return null
+  } else {
+    return <div>
+      <WelcomeSection/>
+      <AboutSection/>
+      <Contact/>
+      <Footer/>
     </div>
-  );
+  }
 }
+
 
 export default App;

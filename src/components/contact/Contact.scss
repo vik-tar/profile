@@ -1,0 +1,25 @@
+@import './src/assets/styles/mixins';
+
+.contact {
+  padding: 30px 0;
+
+  &__container {
+    @include wrapper
+  }
+
+  &__title {
+    @include title
+  }
+}
+
+.links {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}

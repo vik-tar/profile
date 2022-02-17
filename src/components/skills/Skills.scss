@@ -1,0 +1,30 @@
+.skills__item {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 5px;
+}
+
+.skills__name {
+  width: 30%;
+  text-align: center;
+}
+
+.levelFullBar {
+  width: 70%;
+  border: 1px solid #7a7a7a;
+
+  @media(max-width: 970px) {
+    width: 50%;
+  }
+}
+
+.levelBar {
+  background-color: green;
+  height: 100%;
+}
+
+.skills__level {
+  width: 10%;
+  text-align: center;
+}
+
